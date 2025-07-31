@@ -100,3 +100,6 @@ We can also use auto-scaling features on the backend and database layer to make 
 ## Choosing my Tech Stack
  * We will be using React in frontend for faster response times and rendering.
  * We will use Node.js in backend and MongoDB for database because they are versatile and easy to work with.
+
+
+ --vaibhav
