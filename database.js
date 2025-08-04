@@ -81,5 +81,3 @@ async function main() {
     await delete_post(added._id);
     console.log('🗑️ Deleted Post');
 }
-
-main().then(() => client.close()).catch(console.error);
