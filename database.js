@@ -1,6 +1,7 @@
+require('dotenv').config();
 const { MongoClient, ObjectId } = require('mongodb');
 
-const uri = 'mongodb+srv://mvaibhav5874:vaibhav5874@sem-7.1vdwlbo.mongodb.net/?retryWrites=true&w=majority&appName=sem-7';
+const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 const dbName = 'InfoMangement';
 const collectionName = 'im_posts';
@@ -80,3 +81,5 @@ async function main() {
     await delete_post(added._id);
     console.log('🗑️ Deleted Post');
 }
+
+main().then(() => client.close()).catch(console.error);
