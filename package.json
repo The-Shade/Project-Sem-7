@@ -1,0 +1,17 @@
+{
+  "name": "project-sem-7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/The-Shade/Project-Sem-7"
+  },
+  "private": true,
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
