@@ -2,3 +2,5 @@
 ./.idea/
 # Local Development Files
 ./src/server/Backend/database_test.js
+#env
+.env
