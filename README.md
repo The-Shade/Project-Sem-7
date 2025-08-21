@@ -46,16 +46,25 @@ _Describes what a user should be able to do in our application_
 * Users should be able to upload Excel sheets for viewing as well as sending automatic notifications to relevant members.
 * Users should be able to tag relevant members in posts for notifications.
 
-## Minimal Viable Product (MVP)
+## Version 1 (Minimum Viable Product)
 _Defines the minimum required features for the application to be considered as prototype or any version_
 
-### Version 1
 MVP must possess the following features:
 * Login for Faculty and Students
 * Post creation
-* Post Moderation (Blocking of post only)
 
 These features are the core features required to implement the idea and hence, only these will be implemented in version 1.0 of the product.
+
+## Version 2
+Version 2 must contain the following features:
+ * Post display
+ * Post tags
+ * Post Deletion
+ * Post Updating
+ * Login (initial)
+   * No OTP for now
+ * Role implementation (initial)
+   * Student and Teacher roles
 
 ## Data Model
 _Defines the Entity-Relationship model_
