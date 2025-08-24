@@ -1,0 +1,39 @@
+#post-form-container {
+    max-width: 600px;
+    box-sizing: border-box;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    resize: none;
+}
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#publishBtn {
+    background: #007bff;
+    color: #fff;
+}
+
+#resetBtn {
+    background: #dc3545;
+    color: #fff;
+}

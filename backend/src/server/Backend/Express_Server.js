@@ -1,20 +1,26 @@
+require('dotenv').config();
 const express = require("express");
+const utils = require("../Utils/Utils.js");
 const app = express();
 app.use(express.json());
-const db = new (require('./database_test.js'))();
-const PORT = 3000;
+app.use((require('cors'))());
+const db = new (require('./database.js'))();
+const PORT = process.env.NODE_PORT;
 
+if (!db.connect()) {
+    throw new Error ("Database Connection Error");
+}
 
 app.get('/posts', (req, res) => {
     res.setHeader("Content-Type", "application/json");
     db.get_all_posts().then(value => {
-        res.send(value);
+        res.json(value);
     });
 });
 
 app.get('/posts/:id', (req, res) => {
     res.setHeader("Content-Type", "application/json");
-    db.get_post(Number(req.params.id)).then(value => {
+    db.get_post(utils.ConvertToObjectID(req.params.id)).then(value => {
         res.send(value);
     });
 });
@@ -22,23 +28,20 @@ app.get('/posts/:id', (req, res) => {
 app.post('/posts', (req, res) => {
     let new_post = {
         author: req.body.author,
-        title: req.body.title,
-        content: req.body.content
+        title: req.body.post_title,
+        content: req.body.post_content
     };
     res.setHeader('Content-Type', 'application/json');
 
-    db.add_post(new_post).then(
-        value => {
-            console.log(value);
-            res.send(value);
-        }
-    );
+    db.add_post(new_post).then(value => {
+        res.send(value);
+    });
 });
 
 app.put('/posts/:id', (req, res) => {
     res.setHeader("Content-Type", "application/json");
 
-    db.update_post(Number(req.params.id), req.body).then(value => {
+    db.update_post(utils.ConvertToObjectID(req.params.id), req.body).then(value => {
         res.send(value);
     });
 });
@@ -46,9 +49,9 @@ app.put('/posts/:id', (req, res) => {
 app.delete('/posts/:id', (req, res) => {
     res.setHeader("Content-Type", "application/json");
 
-    db.delete_post(Number(req.params.id)).then(value => res.send(value));
+    db.delete_post(utils.ConvertToObjectID(req.params.id)).then(value => res.send(value));
 })
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on port ${PORT}`);
 });
