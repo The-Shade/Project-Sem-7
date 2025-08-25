@@ -96,11 +96,11 @@ User _(entity)_ has a one-to-many relationship with Post _(entity)_
 ## Database functions
 
 ### post functions
-- add_post (post object) ==Returns=> new_post object
-- delete_post (post_id ObjectId) ==Returns=> Null
-- update_post (post_id ObjectId, post object) ==Returns=> updated_post object
-- get_post (post_id ObjectId) ==Returns=> post object
-- get_all_posts () ==Returns=> posts array <post object>
+- add_post (post object) == Returns => new_post object
+- delete_post (post_id ObjectId) == Returns => Null
+- update_post (post_id ObjectId, post object) == Returns => updated_post object
+- get_post (post_id ObjectId) == Returns => post object
+- get_all_posts () == Returns => posts array <post object>
 
 ### user functions
 - add_user  (user) == Returns => new_user object
