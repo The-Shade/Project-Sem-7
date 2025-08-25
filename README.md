@@ -95,11 +95,19 @@ User _(entity)_ has a one-to-many relationship with Post _(entity)_
 
 ## Database functions
 
+### post functions
 - add_post (post object) ==Returns=> new_post object
 - delete_post (post_id ObjectId) ==Returns=> Null
 - update_post (post_id ObjectId, post object) ==Returns=> updated_post object
 - get_post (post_id ObjectId) ==Returns=> post object
-- get_all_posts () ==Returns=> posts array\<post object\>
+- get_all_posts () ==Returns=> posts array <post object>
+
+### user functions
+- add_user  (user) == Returns => new_user object
+- delete_user (user_id) == Returns => Null
+- update_user (user_id,user) ==> Returns => updated_user object
+- get_user (user_id) ==> Returns => user object
+- get_all_users () ==> Returns => users array <user object>
 
 ## Future Scope
 _Describes what we plan to do with this project in the future, used to check if my current decisions would impact the future outcomes_
