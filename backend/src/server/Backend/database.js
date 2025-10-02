@@ -15,7 +15,7 @@ class Database {
         }
     }
 
-    //...post function starts from here
+    // post function starts from here
     
     async add_post(post) {
         try {
@@ -66,7 +66,7 @@ class Database {
         }
     }
 
-    //..user functions starts from here
+    // user functions starts from here
 
     async add_user(user) {
         try {

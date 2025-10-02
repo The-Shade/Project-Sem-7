@@ -11,6 +11,8 @@ if (!db.connect()) {
     throw new Error ("Database Connection Error");
 }
 
+// Posts Routes
+
 app.get('/posts', (req, res) => {
     res.setHeader("Content-Type", "application/json");
     db.get_all_posts().then(value => {
@@ -51,6 +53,28 @@ app.delete('/posts/:id', (req, res) => {
 
     db.delete_post(utils.ConvertToObjectID(req.params.id)).then(value => res.send(value));
 })
+
+// User Routes
+
+app.get('/users/', (req, res) => {
+    res.json(db.get_all_users());
+});
+
+app.get('/users/:id', (req, res) => {
+    res.json(db.get_user(req.params.id));
+});
+
+app.post('/users/', (req, res) => {
+    res.json(db.add_user(req.body.user));
+});
+
+app.put('/users/:id', (req, res) => {
+    res.json(db.update_user(req.params.id));
+});
+
+app.delete('/users/:id', (req, res) => {
+    res.json(db.delete_user(req.params.id));
+});
 
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on port ${PORT}`);
