@@ -1,5 +1,5 @@
 require('dotenv').config({path: "../../../../.env"});
-const { MongoClient, ObjectId } = require('mongodb');
+const { MongoClient } = require('mongodb');
 
 class Database {
     client = new MongoClient(process.env.MONGODB_URI);

@@ -1,10 +1,14 @@
 require('dotenv').config();
+
 const express = require("express");
 const utils = require("../Utils/Utils.js");
+const db = new (require('./database.js'))();
+
 const app = express();
 app.use(express.json());
 app.use((require('cors'))());
-const db = new (require('./database.js'))();
+app.use((require("cookie-parser"))());
+
 const PORT = process.env.NODE_PORT;
 
 if (!db.connect()) {
@@ -73,14 +77,14 @@ app.get('/users/:id', (req, res) => {
 app.post('/users/', (req, res) => {
     res.setHeader("Content-Type", "application/json");
 
-    db.add_user()
+    db.add_user(req.body.user)
         .then(value => res.json(value));
 });
 
 app.put('/users/:id', (req, res) => {
     res.setHeader("Content-Type", "application/json");
 
-    db.update_user(utils.ConvertToObjectID(req.params.id))
+    db.update_user(utils.ConvertToObjectID(req.params.id), req.body.user)
         .then(value => res.json(value));
 });
 
