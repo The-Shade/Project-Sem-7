@@ -120,6 +120,29 @@ class Database {
         }
     }
 
+    // clear collection functions
+
+    async clear_users() {
+        try{
+            const result = await this.client.db(this.dbName).collection(this.usercollection).deleteMany({});
+            if(result.deletedCount > 0)  {
+                return {status: 200, message: 'Deleted all users'};
+            }
+        }    catch (error){
+            return{status: 500, message: 'Failed to delete any user'};
+        }
+    }
+
+    async clear_posts() {
+        try{
+            const result = await this.client.db(this.dbName).collection(this.postcollection).deleteMany({});
+            if(result.deletedCount > 0)  {
+                return {status: 200, message: 'Deleted all posts'};
+            }
+        }    catch (error){
+            return{status: 500, message: 'Failed to delete any post'};
+        }
+    }
 
     // test function
     async main() {

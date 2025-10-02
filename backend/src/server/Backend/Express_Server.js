@@ -34,8 +34,8 @@ app.get('/posts/:id', (req, res) => {
 app.post('/posts', (req, res) => {
     let new_post = {
         author: req.body.author,
-        title: req.body.post_title,
-        content: req.body.post_content
+        title: req.body.title,
+        content: req.body.content
     };
     res.setHeader('Content-Type', 'application/json');
 
@@ -81,6 +81,7 @@ app.post('/users/', (req, res) => {
         .then(value => res.json(value));
 });
 
+
 app.put('/users/:id', (req, res) => {
     res.setHeader("Content-Type", "application/json");
 
@@ -94,6 +95,27 @@ app.delete('/users/:id', (req, res) => {
     db.delete_user(utils.ConvertToObjectID(req.params.id))
         .then(value => res.json(value));
 });
+
+// Admin Routes
+
+app.delete("/admin/delete-all/users/", (req, res) => {
+    if (req.body.user.isAdmin) {
+        db.clear_users()
+            .then(value => res.json(value));
+    } else {
+        res.json({status: 403, message: "Request denied"});
+    }
+});
+
+app.delete("/admin/delete-all/posts/", (req, res) => {
+    if (req.body.user.isAdmin) {
+        db.clear_posts()
+            .then(value => res.json(value));
+    } else {
+        res.json({status: 403, message: "Request denied"});
+    }
+});
+
 
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on port ${PORT}`);
