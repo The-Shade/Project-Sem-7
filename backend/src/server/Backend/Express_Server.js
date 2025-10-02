@@ -99,7 +99,7 @@ app.delete('/users/:id', (req, res) => {
 // Admin Routes
 
 app.delete("/admin/delete-all/users/", (req, res) => {
-    if (req.body.user.isAdmin) {
+    if (req.body.user.role === "Admin") {
         db.clear_users()
             .then(value => res.json(value));
     } else {
@@ -108,7 +108,7 @@ app.delete("/admin/delete-all/users/", (req, res) => {
 });
 
 app.delete("/admin/delete-all/posts/", (req, res) => {
-    if (req.body.user.isAdmin) {
+    if (req.body.user.role === "Admin") {
         db.clear_posts()
             .then(value => res.json(value));
     } else {

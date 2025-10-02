@@ -124,7 +124,7 @@ class Database {
 
     async clear_users() {
         try{
-            const result = await this.client.db(this.dbName).collection(this.usercollection).deleteMany({});
+            const result = await this.client.db(this.dbName).collection(this.usercollection).deleteMany({role: {$ne: "Admin"}});
             if(result.deletedCount > 0)  {
                 return {status: 200, message: 'Deleted all users'};
             }
