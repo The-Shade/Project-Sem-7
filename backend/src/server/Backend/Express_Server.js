@@ -57,23 +57,38 @@ app.delete('/posts/:id', (req, res) => {
 // User Routes
 
 app.get('/users/', (req, res) => {
-    res.json(db.get_all_users());
+    res.setHeader("Content-Type", "application/json");
+
+    db.get_all_users()
+        .then(value => res.json(value));
 });
 
 app.get('/users/:id', (req, res) => {
-    res.json(db.get_user(req.params.id));
+    res.setHeader("Content-Type", "application/json");
+
+    db.get_user(utils.ConvertToObjectID(req.params.id))
+        .then(value => res.json(value));
 });
 
 app.post('/users/', (req, res) => {
-    res.json(db.add_user(req.body.user));
+    res.setHeader("Content-Type", "application/json");
+
+    db.add_user()
+        .then(value => res.json(value));
 });
 
 app.put('/users/:id', (req, res) => {
-    res.json(db.update_user(req.params.id));
+    res.setHeader("Content-Type", "application/json");
+
+    db.update_user(utils.ConvertToObjectID(req.params.id))
+        .then(value => res.json(value));
 });
 
 app.delete('/users/:id', (req, res) => {
-    res.json(db.delete_user(req.params.id));
+    res.setHeader("Content-Type", "application/json");
+
+    db.delete_user(utils.ConvertToObjectID(req.params.id))
+        .then(value => res.json(value));
 });
 
 app.listen(PORT, '0.0.0.0', () => {
