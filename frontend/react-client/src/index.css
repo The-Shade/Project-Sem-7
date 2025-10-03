@@ -11,9 +11,7 @@ body {
     width: 100%;
     height: 100dvh;
 
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url("../public/backgrounds/clay-banks-u27Rrbs9Dwc-unsplash.jpg");
 }
 
 #root {
@@ -23,4 +21,7 @@ body {
 
     width: 100%;
     height: 100dvh;
+
+    background-size: contain;
+    background: rgba(0, 0, 0, 0) no-repeat center;
 }
