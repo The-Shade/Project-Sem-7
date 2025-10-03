@@ -5,7 +5,7 @@ import LoginForm from "./Components/login-form/login-form";
 
 
 
-function App(props) {
+function App() {
     return (
         <BrowserRouter>
                 <LoginForm />

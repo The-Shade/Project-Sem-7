@@ -1,6 +1,6 @@
 import "./login-form.css"
 
-function loginForm(props) {
+function loginForm() {
     return (
         <form id={"login-form"} action={"/login/"} method={"POST"}>
             <h3 id={"login-heading"}>Login</h3>
