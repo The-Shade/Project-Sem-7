@@ -19,7 +19,8 @@ if (!db.connect()) {
 
 app.get('/posts', (req, res) => {
     res.setHeader("Content-Type", "application/json");
-    db.get_all_posts().then(value => {
+
+    db.get_all_posts(req.body).then(value => {
         res.json(value);
     });
 });
@@ -32,14 +33,9 @@ app.get('/posts/:id', (req, res) => {
 });
 
 app.post('/posts', (req, res) => {
-    let new_post = {
-        author: req.body.author,
-        title: req.body.title,
-        content: req.body.content
-    };
     res.setHeader('Content-Type', 'application/json');
 
-    db.add_post(new_post).then(value => {
+    db.add_post(req.body).then(value => {
         res.send(value);
     });
 });
@@ -92,8 +88,12 @@ app.put('/users/:id', (req, res) => {
 app.delete('/users/:id', (req, res) => {
     res.setHeader("Content-Type", "application/json");
 
-    db.delete_user(utils.ConvertToObjectID(req.params.id))
-        .then(value => res.json(value));
+    if (req.body.user.role === "Admin" || req.body.user.role === "Staff")
+        db.delete_user(req.params.id)
+            .then(value => res.json(value));
+    else {
+        res.json({status: 403, message: "Request denied"});
+    }
 });
 
 // Admin Routes
