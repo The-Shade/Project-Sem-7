@@ -1,14 +1,14 @@
 import "./App.css"
 import "./Components/login-form/login-form"
 import {BrowserRouter} from "react-router-dom";
-import LoginForm from "./Components/login-form/login-form";
+import PostFeed from "./Components/post-feed/post-feed";
 
 
 
 function App() {
     return (
         <BrowserRouter>
-                <LoginForm />
+            <PostFeed />
         </BrowserRouter>
     );
 }
