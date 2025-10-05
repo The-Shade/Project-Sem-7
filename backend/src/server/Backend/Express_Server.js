@@ -20,7 +20,7 @@ if (!db.connect()) {
 app.get('/posts', (req, res) => {
     res.setHeader("Content-Type", "application/json");
 
-    db.get_all_posts(req.body).then(value => {
+    db.get_all_posts(req.query).then(value => {
         res.json(value);
     });
 });
