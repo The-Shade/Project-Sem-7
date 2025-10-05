@@ -1,9 +1,9 @@
 import "./post-card.css"
 
 export default function PostCard(props) {
-    const author_name = props.name;
-    const author_initials = props.name.slice(0,1);
-    const post_content = props.content;
+    const author_name = (props.post.author)?props.post.author:"Hello";
+    const author_initials = author_name.slice(0,1);
+    const post_content = props.post.content;
 
     return (
         <div className={"post-card"}>
