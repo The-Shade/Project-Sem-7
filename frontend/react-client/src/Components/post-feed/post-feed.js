@@ -1,4 +1,5 @@
 import "./post-feed.css"
+import PostCard from "../post-card/post-card";
 
 function PostFeed() {
     return (
@@ -20,12 +21,10 @@ function PostFeed() {
                 </select>
             </div>
             <div id="post-feed-container">
-                <div style={{backgroundColor: "white", width: "100%", height: "150px"}}></div>
-                <div style={{backgroundColor: "white", width: "100%", height: "150px"}}></div>
-                <div style={{backgroundColor: "white", width: "100%", height: "150px"}}></div>
-                <div style={{backgroundColor: "white", width: "100%", height: "150px"}}></div>
-                <div style={{backgroundColor: "white", width: "100%", height: "150px"}}></div>
-                <div style={{backgroundColor: "white", width: "100%", height: "150px"}}></div>
+                <PostCard name={"Abhilakshya Gusain"} content={"This is a post."}/>
+                <PostCard name={"Muskaan Walia"}/>
+                <PostCard name={"Malli"}/>
+                <PostCard name={"Jasanpreet Kaur"}/>
             </div>
         </div>
     );

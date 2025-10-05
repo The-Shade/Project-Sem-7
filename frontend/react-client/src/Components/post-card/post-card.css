@@ -1,0 +1,55 @@
+.post-card {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+
+    background-color: whitesmoke;
+
+    border-radius: 10px;
+    padding: 10px 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.post-card-title-container {
+    width: 100%;
+    min-height: 40px;
+
+    border-bottom: 1px solid darkgrey;
+
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    align-items: center;
+}
+
+.post-author-picture {
+    background-color: lightskyblue;
+    width: 30px;
+    height: 30px;
+
+    border-radius: 15px;
+
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-author-name {
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.post-card-content-container {
+    width: 100%;
+    padding: 7px 0;
+
+    flex-grow: 1;
+}
