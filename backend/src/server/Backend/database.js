@@ -59,8 +59,7 @@ class Database {
     }
 
     async get_all_posts(raw_filters) {
-        const doc_filters = {$or: [raw_filters, {filters: {dept: '', section: '', specialization: '', role: ''}}]};
-        console.log(doc_filters);
+        const doc_filters = {$or: [{filters: raw_filters}, {filters: {dept: '', section: '', specialization: '', role: ''}}]};
 
         try {
             return await this.client.db(this.dbName).collection(this.post_collection).find(doc_filters).toArray();
